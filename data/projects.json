@@ -1,0 +1,125 @@
+[
+  {
+    "slug": "digital-behaviors",
+    "title": "Digital Behaviors",
+    "year": "2026",
+    "tags": [
+      "Android",
+      "Kotlin",
+      "Random Forest"
+    ],
+    "description": "An ML-based Android app that analyzes smartphone usage patterns and predicts digital addiction.",
+    "points": [
+      "Random Forest model reaching about 98% accuracy in digital addiction prediction.",
+      "Real-time collection of screen time, app usage and unlock frequency.",
+      "Secure sandbox with PIN-based authentication for controlled testing."
+    ],
+    "overview": "Instead of treating screen time as one number, the app captures how often you unlock, switch apps and lose focus, then turns that into behavioral insight.",
+    "problem": "Standard OS screen-time tools ignore context and fragmentation, so people can't see why their focus drops.",
+    "architecture": [
+      "Usage data collector",
+      "Feature extraction",
+      "ML inference",
+      "Insights dashboard"
+    ],
+    "stack": [
+      "Kotlin",
+      "Android SDK",
+      "Random Forest",
+      "TensorFlow Lite",
+      "Room"
+    ],
+    "challenges": [
+      "Keeping background battery drain low while collecting usage data.",
+      "Running the model fast enough on a phone.",
+      "Designing a clear, high-contrast dashboard."
+    ],
+    "links": [
+      {
+        "label": "Source",
+        "url": "https://github.com/ATU-S/digital-behaviors"
+      }
+    ]
+  },
+  {
+    "slug": "smart-waste-bin",
+    "title": "Smart Waste Bin",
+    "year": "2025",
+    "tags": [
+      "Embedded C",
+      "Arduino",
+      "IoT"
+    ],
+    "description": "An IoT waste segregation system that detects and sorts waste automatically using Arduino and sensors.",
+    "points": [
+      "Hardware sensors detect and categorize waste types in real time.",
+      "Control logic drives automated segregation, cutting manual sorting effort."
+    ],
+    "overview": "Built to sort waste at the source: ultrasonic and inductive sensors tell metallic from non-metallic items and servo flaps route them.",
+    "problem": "Manual sorting is error-prone and often skipped.",
+    "architecture": [
+      "Proximity trigger",
+      "Inductive check",
+      "Microcontroller decision",
+      "Servo flap"
+    ],
+    "stack": [
+      "Embedded C",
+      "Arduino",
+      "HC-SR04 ultrasonic",
+      "Inductive sensor",
+      "Servo motors"
+    ],
+    "challenges": [
+      "Removing sensor jitter and false positives from fast item drops.",
+      "Calibrating servo limits to avoid jamming.",
+      "Keeping the control loop fast enough to react quickly."
+    ],
+    "links": [
+      {
+        "label": "Source",
+        "url": "https://github.com/ATU-S/automatic-waste-detection-bin"
+      }
+    ]
+  },
+  {
+    "slug": "e-kart",
+    "title": "E-KART",
+    "year": "2024",
+    "tags": [
+      "Python",
+      "Kivy",
+      "SQLite"
+    ],
+    "description": "A cross-platform store management app with product recommendations and nearby-store price comparison.",
+    "points": [
+      "Python (Kivy) app for inventory and store management.",
+      "Recommendations based on user interaction patterns.",
+      "Real-time availability and price comparison across nearby stores."
+    ],
+    "overview": "E-KART joins inventory tracking, price comparison and recommendations in one interface for store managers and shoppers.",
+    "problem": "Shoppers and store managers work from separate, disconnected views of stock and price.",
+    "architecture": [
+      "Inventory sync",
+      "Price indexing",
+      "Recommendations",
+      "Mobile UI"
+    ],
+    "stack": [
+      "Python",
+      "Kivy",
+      "SQLite"
+    ],
+    "challenges": [
+      "A Kivy layout that scales across phone and tablet screens.",
+      "Fast search across hundreds of products.",
+      "Keeping business logic separate from the UI."
+    ],
+    "links": [
+      {
+        "label": "Source",
+        "url": "https://github.com/ATU-S/CHE-FINAL-PROJECT"
+      }
+    ]
+  }
+]

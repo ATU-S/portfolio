@@ -1,0 +1,47 @@
+{
+  "name": "Ananthu S",
+  "role": "Software engineer",
+  "headline": "I build software that works on real hardware, with real data, for real users.",
+  "status": "Open to software and systems roles",
+  "location": "Calicut, Kerala, India",
+  "email": "anan1hus@gmail.com",
+  "phone": "+91 94006 42545",
+  "github": "https://github.com/ATU-S",
+  "linkedin": "https://www.linkedin.com/in/atu-s",
+  "resume": "assets/Ananthu S.pdf",
+  "about": [
+    "I'm a software developer and engineering undergraduate building practical systems across IoT, embedded programming and application development.",
+    "I solve problems through system integration, from sensor input and ML models to a responsive mobile UI, and I pick up new technologies quickly."
+  ],
+  "facts": [
+    {
+      "label": "Degree",
+      "value": "B.Tech CSE, 2027 · 7.57 CGPA"
+    },
+    {
+      "label": "Diploma",
+      "value": "Computer Hardware Eng. · 8.52 CGPA"
+    },
+    {
+      "label": "Leadership",
+      "value": "Technology Lead, IEDC KMCT, 2026"
+    },{
+      "label": "Leadership",
+      "value": "Mulearn lead KMCT CE, 2026"
+    },
+    {
+      "label": "Focus",
+      "value": "On-device ML, embedded, apps"
+    }
+  ],
+  "ticker": [
+    "Android",
+    "TensorFlow Lite",
+    "Embedded C",
+    "IoT",
+    "Edge computing",
+    "Kotlin",
+    "Python",
+    "C++"
+  ]
+}

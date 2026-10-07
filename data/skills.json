@@ -1,0 +1,45 @@
+[
+  {
+    "group": "Languages",
+    "note": "Mobile, scripting and firmware",
+    "items": [
+      "Python",
+      "Kotlin",
+      "Java",
+      "C",
+      "Embedded C"
+    ]
+  },
+  {
+    "group": "Technologies",
+    "note": "Tools and platforms",
+    "items": [
+      "Android Studio",
+      "Arduino",
+      "Kivy",
+      "Linux",
+      "Git",
+      "GitHub",
+      "IoT"
+    ]
+  },
+  {
+    "group": "Core concepts",
+    "note": "Fundamentals",
+    "items": [
+      "Data Structures & Algorithms",
+      "OOP",
+      "Machine Learning",
+      "Computer Networks",
+      "IoT"
+    ]
+  },
+  {
+    "group": "Databases",
+    "note": "Storage",
+    "items": [
+      "SQL",
+      "SQLite"
+    ]
+  }
+]

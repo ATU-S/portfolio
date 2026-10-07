@@ -1,0 +1,76 @@
+[
+  {
+    "role": "Developer Intern",
+    "org": "CogniLearn (JHF IT Innovations)",
+    "period": "June 2026",
+    "summary": "",
+    "points": [
+      "Hands-on exposure to real industry environments and professional development workflows.",
+      "Worked with industry-standard tools and current technologies."
+    ],
+    "tags": [
+      "Software development"
+    ]
+  },
+  {
+    "role": "Technology Lead",
+    "org": "IEDC, KMCT College of Engineering",
+    "period": "2026",
+    "summary": "",
+    "points": [
+      "Led technical initiatives and guided student teams in building and deploying prototypes.",
+      "Took part in the IEDC Summit on startups and innovation (2025 and 2026).",
+      "Active hackathon participant, Community Digital Learning Space (2025)."
+    ],
+    "tags": [
+      "Leadership",
+      "Prototyping"
+    ]
+  },
+  {
+    "role": "Campus Lead",
+    "org": "MuLearn, KMCT College of Engineering",
+    "period": "2026",
+    "summary": "",
+    "points": [
+      "Lead the µLearn community on campus, turning peer learning into a habit through regular sessions and projects.",
+      "Organize workshops, talks and hands-on challenges that help students move from tutorials to building real things.",
+      "Mentor first-year and peer learners on tech roadmaps, tooling and getting started with open-source and projects.",
+      "Connect students with the wider MuLearn network of mentors, events and opportunities.",
+      "Coordinate a small team of volunteers to plan events, spread the word and keep the community active."
+    ],
+    "tags": [
+      "Leadership", 
+      "Community", 
+      "Mentorship"
+    ]
+  },
+  {
+    "role": "Machine Learning Intern",
+    "org": "Yhills",
+    "period": "Sep – Nov 2024",
+    "summary": "",
+    "points": [
+      "Built and evaluated Python ML models for predictive analytics.",
+      "Handled preprocessing, feature selection and hyperparameter tuning."
+    ],
+    "tags": [
+      "Python",
+      "ML"
+    ]
+  },
+  {
+    "role": "Python Automation Intern",
+    "org": "Propulsion System",
+    "period": "May 2023",
+    "summary": "",
+    "points": [
+      "Wrote Python scripts to automate workflows and data processing.",
+      "Cut manual effort by streamlining repetitive processes."
+    ],
+    "tags": [
+      "Python",
+      "Automation"
+    ]
+  }
+]
