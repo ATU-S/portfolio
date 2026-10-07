@@ -9,15 +9,15 @@
   {
     "title": "Generative AI (Gen-AI)",
     "issuer": "NIT Calicut",
-    "year": "",
-    "file": "",
+    "year": "2024",
+    "file": "assets/certs/sage.jpeg",
     "url": ""
   },
   {
-    "title": "Hacker Toolkit",
+    "title": "Inside a Hacker's Toolkit",
     "issuer": "Offenso Hackers Academy",
-    "year": "",
-    "file": "",
+    "year": "2025",
+    "file": "assets/certs/inside a hacker's toolkit.jpeg",
     "url": ""
   },
   {
@@ -32,6 +32,48 @@
     "issuer": "Yhills",
     "year": "18 sept 2026",
     "file": "assets/certs/certificate_Ananthu_S_51.pdf",
+    "url": ""
+  },
+  {
+    "title": "Certification of appriciation",
+    "issuer": "KMCT College association",
+    "year": "2025",
+    "file": "assets/certs/association.jpeg",
+    "url": ""
+  },
+  {
+    "title": "1st in Debugging competition",
+    "issuer": "MAMO College Mukkam",
+    "year": "18 sept 2026",
+    "file": "assets/certs/debuggging.jpeg",
+    "url": ""
+  },
+  {
+    "title": "All Kerala Govt. Technical High School Science and Technology fair",
+    "issuer": "Dept. of higher education, Directorate of Technical Education",
+    "year": "05 jan 2025 to 06 jan 2025",
+    "file": "assets/certs/tech.jpeg",
+    "url": ""
+  },
+  {
+    "title": "Web Designing Competition (2nd)",
+    "issuer": "Dayapuram Arts and Science College for Womens",
+    "year": "05 jan 2025 to 06 jan 2025",
+    "file": "assets/certs/webdesigning.jpeg",
+    "url": ""
+  },
+  {
+    "title": "Data Analysis Using Python",
+    "issuer": "KMCT College of Engineering For Women",
+    "year": "05 jan 2025 to 06 jan 2025",
+    "file": "assets/certs/data analsytic in python.jpeg",
+    "url": ""
+  },
+  {
+    "title": "National Service Scheme (NSS)",
+    "issuer": "Higher Secondary Nation Servive Scheme",
+    "year": "2020",
+    "file": "assets/certs/nss.jpeg",
     "url": ""
   }
 ]
