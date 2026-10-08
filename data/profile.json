@@ -1,7 +1,7 @@
 {
   "name": "Ananthu S",
   "role": "Software engineer",
-  "headline": "I build software that works on real hardware, with real data, for real users.",
+  "headline": "I build software that works on real world, with real data, for real users.",
   "status": "Open to software and systems roles",
   "location": "Calicut, Kerala, India",
   "email": "anan1hus@gmail.com",
@@ -42,6 +42,7 @@
     "Edge computing",
     "Kotlin",
     "Python",
-    "C++"
+    "C++",
+    "AWS"
   ]
 }
