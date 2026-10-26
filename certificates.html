@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Certificates · Ananthu S</title>
+  <meta name="description" content="Certificate portfolio page for Ananthu S.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F1E7;
+      --fg: #18211C;
+      --mute: #6C736C;
+      --line: #DDD5C4;
+      --acc: #0F5A3C;
+      --hot: #E8641B;
+      --card: #FBF8F1;
+      --shadow: rgba(15, 40, 28, 0.16);
+      --ser: "Instrument Serif", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .28;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .b1 {
+      width: 46vw;
+      height: 46vw;
+      background: var(--acc);
+      left: -14vw;
+      top: -10vw;
+    }
+
+    .b2 {
+      width: 36vw;
+      height: 36vw;
+      background: var(--hot);
+      right: -8vw;
+      bottom: -8vw;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 5vw 18px;
+      background: rgba(246, 241, 231, 0.86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav b {
+      font: 400 26px var(--ser);
+      letter-spacing: -.03em;
+    }
+
+    nav div {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--mute);
+      font-size: 14px;
+    }
+
+    nav div a:hover,
+    nav div a.is-active {
+      color: var(--fg);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 72px 5vw 90px;
+    }
+
+    .ey {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--hot);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ey::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: var(--hot);
+      display: inline-block;
+    }
+
+    h1 {
+      font: 400 clamp(46px, 7vw, 92px)/.92 var(--ser);
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+
+    h1 em {
+      color: var(--acc);
+      font-style: italic;
+    }
+
+    .lead {
+      max-width: 42rem;
+      margin-top: 18px;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--mute);
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: var(--acc);
+      color: #F6F1E7;
+      border: 1px solid var(--acc);
+      font-weight: 600;
+      transition: transform .25s ease, background .25s ease, color .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--hot);
+      border-color: var(--hot);
+    }
+
+    .btn.alt {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .btn.alt:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: rgba(251, 248, 241, 0.74);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 18px 38px -26px var(--shadow);
+      padding: 24px;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(15, 90, 60, 0.55);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(15, 90, 60, 0.08);
+      color: var(--acc);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .card h2 {
+      margin: 18px 0 8px;
+      font-size: clamp(1.5rem, 2vw, 2.1rem);
+      font-family: var(--ser);
+      letter-spacing: -.03em;
+      font-weight: 400;
+    }
+
+    .issuer {
+      color: var(--mute);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .description {
+      color: var(--mute);
+      min-height: 72px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #ECF4EE;
+      color: var(--acc);
+      border: 1px solid rgba(15, 90, 60, 0.18);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mini-btn:hover {
+      background: var(--acc);
+      color: #fff;
+    }
+
+    .empty {
+      padding: 28px 0;
+      color: var(--mute);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 40;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 21, 16, 0.66);
+    }
+
+    .modal-panel {
+      position: relative;
+      width: min(1100px, 92vw);
+      max-height: 86vh;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 36px 80px -30px rgba(0, 0, 0, 0.45);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.32);
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 18px;
+      background: #fff;
+      max-height: calc(86vh - 76px);
+      overflow: auto;
+    }
+
+    .modal-body iframe {
+      display: block;
+      width: 100%;
+      min-height: 70vh;
+      border: 0;
+      background: #fff;
+    }
+
+    .modal-body img {
+      display: block;
+      width: 100%;
+      object-fit: contain;
+      max-height: 70vh;
+      background: #fff;
+    }
+
+    .modal-meta {
+      margin: 0 0 12px;
+      color: var(--mute);
+      font-size: 0.96rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding-inline: 20px;
+      }
+
+      nav div {
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .page {
+        padding-top: 48px;
+      }
+
+      .cta,
+      .card-actions,
+      .modal-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <nav>
+    <b>Ananthu S</b>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="certificates.html" class="is-active">Certificates</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="ey">Verified learning</div>
+    <h1>My <em>certificates</em> and milestones.</h1>
+    <p class="lead">A curated list of learning milestones, technical validation, and hands-on experiences that reflect my growth across software engineering, AI, and security.</p>
+
+    <div class="cta">
+      <a class="btn" href="index.html">Back to portfolio</a>
+      <a class="btn alt" href="https://github.com/ATU-S" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+
+    <section id="certificate-grid" class="grid" aria-live="polite"></section>
+  </main>
+
+  <div id="certificate-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="certificate-title">
+      <div class="modal-header">
+        <h3 id="certificate-title">Certificate</h3>
+        <button class="close-btn" type="button" aria-label="Close modal">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="certificate-meta" class="modal-meta"></p>
+        <div id="certificate-view"></div>
+        <div class="modal-actions">
+          <a id="certificate-download" class="btn" href="#" target="_blank" rel="noreferrer">Download</a>
+          <button type="button" class="btn alt close-btn-inline" data-close="true">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('certificate-modal');
+    const modalTitle = document.getElementById('certificate-title');
+    const modalMeta = document.getElementById('certificate-meta');
+    const modalView = document.getElementById('certificate-view');
+    const modalDownload = document.getElementById('certificate-download');
+
+    async function loadCertificates() {
+      const grid = document.getElementById('certificate-grid');
+
+      try {
+        const response = await fetch('certificates.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to load certificates');
+        const certificates = await response.json();
+
+        if (!Array.isArray(certificates) || certificates.length === 0) {
+          grid.innerHTML = '<div class="empty">No certificates available yet.</div>';
+          return;
+        }
+
+        grid.innerHTML = certificates.map((item) => `
+          <article class="card">
+            <span class="badge">${item.type === 'image' ? 'Image' : 'Document'}</span>
+            <h2>${escapeHtml(item.title || 'Certificate')}</h2>
+            <div class="issuer">${escapeHtml(item.issuer || 'Issuer')}</div>
+            <div class="description">${escapeHtml(item.description || 'Certificate description')}</div>
+            <div class="card-actions">
+              <button type="button" class="mini-btn" data-cert="${escapeHtml(item.title)}">View certificate</button>
+              <a class="mini-btn" href="${item.downloadUrl || '#'}" target="_blank" rel="noreferrer">Download</a>
+            </div>
+          </article>
+        `).join('');
+
+        document.querySelectorAll('[data-cert]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const certificate = certificates.find((item) => item.title === button.dataset.cert);
+            if (certificate) openCertificate(certificate);
+          });
+        });
+      } catch (error) {
+        console.error(error);
+        grid.innerHTML = '<div class="empty">Unable to load certificate data at the moment.</div>';
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function openCertificate(item) {
+      modalTitle.textContent = item.title || 'Certificate';
+      modalMeta.textContent = `${item.issuer || 'Issuer'}${item.year ? ' · ' + item.year : ''}`;
+      modalDownload.href = item.downloadUrl || '#';
+
+      if (item.type === 'image') {
+        modalView.innerHTML = `<img src="${item.previewUrl || ''}" alt="${escapeHtml(item.title || 'Certificate')}">`;
+      } else {
+        modalView.innerHTML = `<iframe src="${item.previewUrl || ''}" title="${escapeHtml(item.title || 'Certificate')}"></iframe>`;
+      }
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCertificate() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalView.innerHTML = '';
+    }
+
+    document.addEventListener('click', (event) => {
+      const isCloseTarget = event.target.matches('[data-close="true"]');
+      const isCloseButton = event.target.closest('.close-btn');
+      if (isCloseTarget || isCloseButton) {
+        closeCertificate();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) {
+        closeCertificate();
+      }
+    });
+
+    loadCertificates();
+  </script>
+</body>
+
+</html>

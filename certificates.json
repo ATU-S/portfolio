@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Ethical Hacking",
+    "issuer": "Cisco Networking Academy",
+    "year": "2025",
+    "type": "pdf",
+    "description": "Completed a structured learning path covering cybersecurity fundamentals, threat analysis, and defensive workflows.",
+    "previewUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "downloadUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+  },
+  {
+    "title": "Generative AI",
+    "issuer": "NIT Calicut",
+    "year": "2025",
+    "type": "pdf",
+    "description": "Explored generative AI concepts, model workflows, and practical applications for intelligent system design.",
+    "previewUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "downloadUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+  },
+  {
+    "title": "Machine Learning Intern",
+    "issuer": "Yhills",
+    "year": "2024",
+    "type": "image",
+    "description": "Completed a hands-on machine learning internship focused on applied model development and problem solving.",
+    "previewUrl": "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
+    "downloadUrl": "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80"
+  }
+]
