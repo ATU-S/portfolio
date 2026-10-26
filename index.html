@@ -1,822 +1,806 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta
-      name="description"
-      content="Portfolio of Ananthu S — Software engineering undergraduate building practical systems across Android, AI/ML, IoT, and high-performance computing."
-    />
-    <meta name="theme-color" content="#08090b" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Ananthu S // Practical Software Systems & AI" />
-    <meta property="og:description" content="High-octane interactive portfolio of Ananthu S. Android, AI/ML, IoT, and embedded engineering." />
-    <meta property="og:type" content="website" />
-    <title>ANANTHU S // 01 — PRACTICAL SOFTWARE &amp; SYSTEMS</title>
-    <link rel="canonical" href="https://ananthus.in/" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Google Fonts: Syne, Space Grotesk, JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ananthu S · Software engineer</title>
+  <meta name="description" content="Portfolio of Ananthu S: Android, on-device ML, IoT and embedded systems.">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    :root {
+      --bg: #F6F1E7;
+      --fg: #18211C;
+      --mute: #6C736C;
+      --line: #DDD5C4;
+      --acc: #0F5A3C;
+      --hot: #E8641B;
+      --card: #FBF8F1;
+      color-scheme: light;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      --ser: "Instrument Serif", Georgia, serif
+    }
 
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #101510;
+        --fg: #EEE9DC;
+        --mute: #98A096;
+        --line: #243026;
+        --acc: #4FC38A;
+        --hot: #FF8A4C;
+        --card: #161D17;
+        color-scheme: dark
+      }
+    }
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="cyber-theme">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    :root[data-theme="dark"] {
+      --bg: #101510;
+      --fg: #EEE9DC;
+      --mute: #98A096;
+      --line: #243026;
+      --acc: #4FC38A;
+      --hot: #FF8A4C;
+      --card: #161D17;
+      color-scheme: dark
+    }
 
-    <!-- Background 3D Morphing Canvas -->
-    <canvas id="cyber-canvas" class="cyber-canvas" aria-hidden="true"></canvas>
-    <div class="cyber-grid-overlay" aria-hidden="true"></div>
-    <div class="scanline-overlay" aria-hidden="true"></div>
+    * {
+      box-sizing: border-box;
+      margin: 0
+    }
 
-    <!-- Custom Morphing Magnetic Cursor -->
-    <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
-      <div class="cursor-dot"></div>
-      <div class="cursor-ring"></div>
-      <span class="cursor-badge" id="cursor-badge"></span>
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .35;
+      z-index: 0;
+      pointer-events: none;
+      will-change: transform
+    }
+
+    .b1 {
+      width: 46vw;
+      height: 46vw;
+      background: var(--acc);
+      left: -14vw;
+      top: -10vw;
+      opacity: .16
+    }
+
+    .b2 {
+      width: 36vw;
+      height: 36vw;
+      background: var(--hot);
+      right: -8vw;
+      bottom: -8vw;
+      opacity: .22
+    }
+
+    #bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 3px;
+      width: 100%;
+      background: var(--hot);
+      transform-origin: 0 0;
+      transform: scaleX(0);
+      z-index: 50
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: calc(20px + env(safe-area-inset-top, 0px)) 5vw 0;
+      font-size: 14px
+    }
+
+    nav b {
+      font: 400 24px var(--ser)
+    }
+
+    nav div {
+      display: flex;
+      gap: 22px;
+      color: var(--mute)
+    }
+
+    nav div a {
+      transition: color .3s
+    }
+
+    nav div a.on,
+    nav div a:hover {
+      color: var(--fg)
+    }
+
+    @media(max-width:820px) {
+      nav div {
+        display: none
+      }
+    }
+
+    /* phone */
+    #stage {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 9vw;
+      perspective: 1400px;
+      pointer-events: none
+    }
+
+    #phone {
+      width: 290px;
+      height: 590px;
+      transform-style: preserve-3d;
+      will-change: transform
+    }
+
+    .ph {
+      width: 100%;
+      height: 100%;
+      border-radius: 46px;
+      background: #0B0E0C;
+      padding: 10px;
+      box-shadow: 0 0 0 2px #2A302B, 0 50px 90px -20px rgba(15, 40, 28, .45), 0 20px 40px -10px rgba(0, 0, 0, .25), inset 0 0 0 2px #1a1f1b;
+      position: relative;
+      animation: bob 6s ease-in-out infinite
+    }
+
+    .ph::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(115deg, rgba(255, 255, 255, .18), transparent 32%);
+      pointer-events: none
+    }
+
+    .cam {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #000;
+      box-shadow: 0 0 0 3px #151a16;
+      z-index: 5;
+      transform: translateX(-50%)
+    }
+
+    .scr {
+      width: 100%;
+      height: 100%;
+      border-radius: 36px;
+      overflow: hidden;
+      position: relative;
+      background: #0F1A14;
+      color: #F3F1E8;
+      font-size: 13px
+    }
+
+    .pn {
+      position: absolute;
+      inset: 0;
+      padding: 54px 18px 24px;
+      opacity: 0;
+      transform: translateY(24px) scale(.97);
+      transition: opacity .6s, transform .6s;
+      visibility: hidden
+    }
+
+    .pn.on {
+      opacity: 1;
+      transform: none;
+      visibility: visible
+    }
+
+    .pn.on .a {
+      animation: in .7s calc(var(--i, 0)*.09s + .15s) cubic-bezier(.2, .9, .2, 1) both
+    }
+
+    .lock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, #1f5a40, transparent 60%)
+    }
+
+    .lock .clk {
+      font: 400 78px/1 var(--ser);
+      margin-top: 34px;
+      letter-spacing: -.02em
+    }
+
+    .lock .dt {
+      opacity: .7;
+      margin-top: 6px
+    }
+
+    .lock .nm {
+      margin-top: auto;
+      font: 400 26px var(--ser)
+    }
+
+    .lock .sw {
+      margin-top: 10px;
+      opacity: .6;
+      animation: hint 1.8s ease-in-out infinite;
+      font-size: 12px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px 8px;
+      margin-top: 20px
+    }
+
+    .ic {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      opacity: .9
+    }
+
+    .ic i {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      font: 600 16px Inter;
+      font-style: normal;
+      color: #fff
+    }
+
+    .hd {
+      font: 400 28px var(--ser);
+      margin-bottom: 14px
+    }
+
+    .card {
+      background: #1A2A21;
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 10px;
+      border: 1px solid #274034
+    }
+
+    .card b {
+      display: block;
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    .card small {
+      opacity: .65
+    }
+
+    .card em {
+      font-style: normal;
+      color: #F59A5F;
+      font-size: 11px;
+      display: block;
+      margin-top: 6px
+    }
+
+    .note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start
+    }
+
+    .note i {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--hot);
+      flex: none;
+      display: grid;
+      place-items: center;
+      font-style: normal;
+      font-size: 13px;
+      color: #fff
+    }
+
+    .bar {
+      height: 4px;
+      border-radius: 4px;
+      background: #274034;
+      margin-top: 10px;
+      overflow: hidden
+    }
+
+    .bar u {
+      display: block;
+      height: 100%;
+      background: #4FC38A;
+      width: 0;
+      transition: width 1.4s .5s cubic-bezier(.2, .8, .2, 1)
+    }
+
+    .pn.on .bar u {
+      width: var(--w)
+    }
+
+    .msg {
+      background: #1A2A21;
+      border-radius: 16px;
+      padding: 14px;
+      min-height: 110px;
+      line-height: 1.5;
+      border: 1px solid #274034
+    }
+
+    .msg span {
+      border-right: 2px solid #F59A5F;
+      animation: blink 1s steps(1) infinite
+    }
+
+    .send {
+      margin-top: 14px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 999px;
+      text-align: center;
+      padding: 13px;
+      font-weight: 600;
+      animation: pulse 2s infinite
+    }
+
+    .gest {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      width: 90px;
+      height: 4px;
+      border-radius: 4px;
+      background: #ffffff55;
+      transform: translateX(-50%)
+    }
+
+    /* scenes */
+    main {
+      position: relative;
+      z-index: 10
+    }
+
+    .sc {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 14vh 5vw;
+      width: min(640px, 100%)
+    }
+
+    .sc:first-child {
+      padding-top: 18vh
+    }
+
+    .ey {
+      font: 500 12px Inter;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--hot);
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .ey::before {
+      content: "";
+      width: 0;
+      height: 1px;
+      background: var(--hot);
+      transition: width 1s
+    }
+
+    .sc.in .ey::before {
+      width: 40px
+    }
+
+    h1,
+    h2 {
+      font: 400 clamp(52px, 9vw, 124px)/.92 var(--ser);
+      letter-spacing: -.03em
+    }
+
+    h2 {
+      font-size: clamp(44px, 6.6vw, 92px)
+    }
+
+    h1 em,
+    h2 em {
+      color: var(--acc);
+      font-style: italic
+    }
+
+    .ln {
+      display: block;
+      overflow: hidden;
+      padding-bottom: .1em
+    }
+
+    .ln>span {
+      display: block;
+      transform: translateY(105%);
+      transition: transform 1.1s cubic-bezier(.2, .9, .2, 1);
+      transition-delay: calc(var(--i, 0)*.12s)
+    }
+
+    .sc.in .ln>span {
+      transform: none
+    }
+
+    .fd {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .9s .4s, transform .9s .4s
+    }
+
+    .sc.in .fd {
+      opacity: 1;
+      transform: none
+    }
+
+    .sc p.fd {
+      margin-top: 28px;
+      color: var(--mute);
+      font-size: 18px;
+      max-width: 30em
+    }
+
+    .sc ul {
+      list-style: none;
+      margin-top: 30px
+    }
+
+    .sc li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      transition: padding .4s, color .3s
+    }
+
+    .sc li:last-child {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .sc li:hover {
+      padding-left: 12px;
+      color: var(--acc)
+    }
+
+    .sc li small {
+      color: var(--mute);
+      text-align: right
+    }
+
+    .btn {
+      display: inline-flex;
+      margin-top: 34px;
+      padding: 18px 34px;
+      border-radius: 999px;
+      background: var(--acc);
+      color: #F6F1E7;
+      font-weight: 500;
+      transition: transform .3s, background .3s;
+      align-self: flex-start
+    }
+
+    .btn:hover {
+      background: var(--hot);
+      transform: translateY(-3px) scale(1.03)
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+      align-items: center
+    }
+
+    .row .btn {
+      margin-top: 0
+    }
+
+    .row.sm {
+      margin-top: 26px;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--mute)
+    }
+
+    .row.sm a {
+      transition: color .3s
+    }
+
+    .row.sm a:hover {
+      color: var(--acc)
+    }
+
+    .btn.o {
+      background: transparent;
+      color: var(--fg);
+      border: 1px solid var(--fg)
+    }
+
+    .btn.o:hover {
+      background: var(--fg);
+      color: var(--bg)
+    }
+
+    .btn.wa {
+      background: #1FA855;
+      color: #fff
+    }
+
+    .btn.wa:hover {
+      background: #25D366
+    }
+
+    .sc li a {
+      display: inline-block
+    }
+
+    @media(prefers-color-scheme:dark) {
+      .btn {
+        color: #0b100c
+      }
+    }
+
+    @media(max-width:820px) {
+      #stage {
+        justify-content: center;
+        align-items: flex-start;
+        padding: 11vh 0 0;
+        opacity: .95
+      }
+
+      .sc {
+        width: 100%;
+        justify-content: flex-end;
+        padding-bottom: 7vh;
+        background: linear-gradient(transparent, var(--bg) 42%)
+      }
+
+      .sc>* {
+        position: relative
+      }
+
+      h1 {
+        font-size: clamp(46px, 14vw, 72px)
+      }
+
+      h2 {
+        font-size: clamp(40px, 11vw, 60px)
+      }
+
+      .sc p.fd {
+        font-size: 16px
+      }
+    }
+
+    @keyframes bob {
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+
+    @keyframes in {
+      from {
+        opacity: 0;
+        transform: translateY(26px) scale(.94)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes hint {
+      50% {
+        transform: translateY(-8px);
+        opacity: 1
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, .6)
+      }
+
+      60% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation-duration: .01s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01s !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob b1" id="b1"></div>
+  <div class="blob b2" id="b2"></div>
+  <div id="bar"></div>
+  <nav><b>Ananthu S</b>
+    <div id="nv"><a href="#s1">About</a><a href="#s2">Projects</a><a href="#s3">Experience</a><a
+        href="#s4">Education</a><a href="#s5">Contact</a></div>
+  </nav>
+
+  <div id="stage">
+    <div id="phone">
+      <div class="ph">
+        <div class="cam"></div>
+        <div class="scr" id="scr"></div>
+      </div>
     </div>
+  </div>
 
-    <!-- Fixed Interactive Telemetry HUD -->
-    <aside class="telemetry-hud" id="telemetry-hud" aria-label="System Telemetry">
-      <div class="hud-box">
-        <div class="hud-header">
-          <span class="hud-indicator pulse"></span>
-          <span class="hud-title">SYS_TELEMETRY // V4.0</span>
-        </div>
-        <div class="hud-metrics">
-          <div class="metric-item">
-            <span class="metric-label">FPS</span>
-            <span class="metric-val" id="hud-fps">60</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-label">DEPTH</span>
-            <span class="metric-val" id="hud-scroll">0%</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-label">TIME (IST)</span>
-            <span class="metric-val" id="hud-time">--:--:--</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-label">COORDS</span>
-            <span class="metric-val" id="hud-coords">X:0 Y:0</span>
-          </div>
-        </div>
-        <div class="hud-footer">
-          <span class="hud-status">STATUS: OPTIMAL</span>
-          <span class="hud-mode">MODE // LN4</span>
-        </div>
-      </div>
-    </aside>
+  <main id="main">
+    <section class="sc" id="s0">
+      <div class="ey">Software engineer · Calicut, India</div>
+      <h1><span class="ln"><span style="--i:0">Ananthu</span></span><span class="ln"><span
+            style="--i:1"><em>S</em></span></span></h1>
+      <p class="fd">Software engineering undergraduate bridging Android, AI/ML, IoT and embedded systems. I turn complex
+        logic into reliable, real-world applications.</p>
+      <div class="row fd"><a class="btn" href="https://github.com/ATU-S/portfolio/raw/refs/heads/main/Ananthu%20S.pdf"
+          target="_blank" rel="noreferrer">Download CV ↓</a><a class="btn o" href="https://github.com/ATU-S"
+          target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    </section>
+    <section class="sc" id="s1">
+      <div class="ey">01 · About</div>
+      <h2><span class="ln"><span style="--i:0">Code that fits</span></span><span class="ln"><span style="--i:1">in your
+            <em>pocket.</em></span></span></h2>
+      <p class="fd">I build systems where software meets real hardware, real data and real users. I take ideas from
+        problem to deployed system, linking sensor input, ML inference and responsive mobile UI, and I design around
+        real constraints first.</p>
+    </section>
+    <section class="sc" id="s2">
+      <div class="ey">02 · Projects</div>
+      <h2><span class="ln"><span style="--i:0">Things I’ve</span></span><span class="ln"><span
+            style="--i:1"><em>built.</em></span></span></h2>
+      <ul class="fd" id="pl"></ul>
+    </section>
+    <section class="sc" id="s3">
+      <div class="ey">03 · Experience</div>
+      <h2><span class="ln"><span style="--i:0">Where I’ve</span></span><span class="ln"><span
+            style="--i:1"><em>worked.</em></span></span></h2>
+      <ul class="fd" id="el"></ul>
+    </section>
+    <section class="sc" id="s4">
+      <div class="ey">04 · Education and certifications</div>
+      <h2><span class="ln"><span style="--i:0">Always</span></span><span class="ln"><span
+            style="--i:1"><em>learning.</em></span></span></h2>
+      <ul class="fd" id="dl"></ul>
+    </section>
+    <section class="sc" id="s5">
+      <div class="ey">05 · Contact</div>
+      <h2><span class="ln"><span style="--i:0">Have a system</span></span><span class="ln"><span style="--i:1">in
+            <em>mind?</em></span></span></h2>
+      <div class="row fd"><a class="btn wa"
+          href="https://wa.me/919400642545?text=Hi%20Ananthu%2C%20I%20saw%20your%20portfolio." target="_blank"
+          rel="noreferrer">WhatsApp · +91 94006 42545 ↗</a><a class="btn o"
+          href="mailto:ananthus1687@gmail.com">Email</a></div>
+      <div class="row sm fd"><a href="https://www.linkedin.com/in/atu-s" target="_blank" rel="noreferrer">LinkedIn
+          ↗</a><a href="https://github.com/ATU-S" target="_blank" rel="noreferrer">GitHub ↗</a><a
+          href="https://github.com/ATU-S/portfolio/raw/refs/heads/main/Ananthu%20S.pdf" target="_blank"
+          rel="noreferrer">Download CV ↓</a></div>
+      <p class="fd" style="font-size:14px;margin-top:22px">Calicut, Kerala · usually replies within 24 hours</p>
+    </section>
+  </main>
 
-    <!-- Top Navigation Bar -->
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Ananthu S home" data-cursor="home">
-        <div class="brand-badge">
-          <span class="brand-icon">⚡</span>
-          <span class="brand-id">AS-01</span>
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">ANANTHU S</span>
-          <span class="brand-sub">SOFTWARE ENGINEER</span>
-        </div>
-      </a>
+  <script>
+    /* ===== EDIT YOUR CONTENT HERE ===== */
+    const CERTS = [["Ethical Hacking", "Cisco Networking Academy"], ["Generative AI Engineering", "NIT Calicut"], ["Hacker Toolkit & Security", "Offense Hacker Academy"]];
+    const PROJECTS = [["Digital Behaviors", "Android · On-device ML · 2026", "https://github.com/ATU-S/digital-behaviors", "Private, on-device screen-time insights."], ["Smart Waste Bin", "Embedded C · IoT · 2025", null, "Auto waste sorting with ultrasonic and inductive sensors."], ["E-KART Platform", "Python · Kivy · 2024", null, "Store inventory, stock routing and recommendations."]];
+    const EXP = [["Technology Lead · IEDC, KMCT", "2026 — Active"], ["Machine Learning Intern · Yhills", "Sep — Nov 2024"], ["Python Automation Intern · Propulsion System", "May 2023"]];
+    const EDU = [["B.Tech CSE · KMCT College of Engineering", "2024 — 2027 · 7.5 CGPA", 75], ["Diploma, Computer Hardware Eng. · KMCT Polytechnic", "2021 — 2024 · 8.52 CGPA", 85], ["Diploma in Computer Application · SCOLE Kerala", "2023 · Pass", 100]];
+    const APPS = [["A", "Android", "#3DDC84"], ["K", "Kotlin", "#7F52FF"], ["Py", "Python", "#3776AB"], ["ML", "TFLite", "#E8641B"], ["IO", "IoT", "#2F8F6B"], ["C", "Embedded C", "#4A6FA5"], ["Git", "Git", "#C2492B"], ["Li", "Linux", "#B8A21E"]];
+    /* ================================== */
+    const $ = s => document.querySelector(s);
+    const li = (a) => a.map(x => `<li><span>${typeof x[2] === "string" ? `<a href="${x[2]}" target="_blank" rel="noreferrer">${x[0]} ↗</a>` : x[0]}</span><small>${x[1]}</small></li>`).join("");
+    $("#pl").innerHTML = li(PROJECTS); $("#el").innerHTML = li(EXP); $("#dl").innerHTML = li(EDU.concat(CERTS));
+    const cols = ["#E8641B", "#3DDC84", "#7F52FF", "#4A6FA5"];
+    const panels = [
+      `<div class="pn lock"><div class="clk a" id="clk" style="--i:0">09:41</div><div class="dt a" id="dt" style="--i:1"></div><div class="nm a" style="--i:2">Ananthu S</div><div class="sw a" style="--i:3">swipe up ↑</div></div>`,
+      `<div class="pn"><div class="hd a">Hello.</div><div class="grid">${APPS.map((p, i) => `<div class="ic a" style="--i:${i + 1}"><i style="background:${p[2]}">${p[0]}</i>${p[1]}</div>`).join("")}</div></div>`,
+      `<div class="pn"><div class="hd a">Projects</div>${PROJECTS.map((p, i) => `<div class="card a" style="--i:${i + 1}"><b>${p[0]}</b><small>${p[3]}</small><em>${p[1]}</em></div>`).join("")}</div>`,
+      `<div class="pn"><div class="hd a">Experience</div>${EXP.map((p, i) => `<div class="card note a" style="--i:${i + 1}"><i>${i + 1}</i><div><b>${p[0]}</b><small>${p[1]}</small></div></div>`).join("")}</div>`,
+      `<div class="pn"><div class="hd a">Education</div>${EDU.map((p, i) => `<div class="card a" style="--i:${i + 1}"><b>${p[0]}</b><small>${p[1]}</small><div class="bar"><u style="--w:${p[2]}%"></u></div></div>`).join("")}<div class="card a" style="--i:4"><b>3 certifications</b><small>Cisco · NIT Calicut · Offense Hacker Academy</small><div class="bar"><u style="--w:100%"></u></div></div></div>`,
+      `<div class="pn"><div class="hd a">WhatsApp</div><div class="card a" style="--i:1"><small>Chat with Ananthu</small><b>+91 94006 42545</b></div><div class="msg a" style="--i:2"><span id="ty"></span></div><div class="send a" style="--i:3">Send</div></div>`];
+    $("#scr").innerHTML = panels.join("") + '<div class="gest"></div>';
+    const pn = [...document.querySelectorAll(".pn")];
+    // clock
+    (function c() { const d = new Date(); $("#clk").textContent = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false }); $("#dt").textContent = d.toLocaleDateString([], { weekday: "long", day: "numeric", month: "long" }); setTimeout(c, 10000) })();
+    // typing
+    const TXT = "Hi Ananthu, I have an idea for a connected device…"; let ti = 0, tt;
+    function type() { clearTimeout(tt); ti = 0; (function k() { $("#ty").textContent = TXT.slice(0, ti++); if (ti <= TXT.length) tt = setTimeout(k, 45) })() }
+    // scenes
+    const sc = [...document.querySelectorAll(".sc")]; let act = -1;
+    function setAct(i) { if (i === act) return; act = i; pn.forEach((p, j) => p.classList.toggle("on", j === i)); if (i === 5) type(); document.querySelectorAll("#nv a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#s" + i)) }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("in") }), { threshold: .35 });
+    sc.forEach(s => io.observe(s));
+    // phone choreography: [rotY, rotX, rotZ, scale, shiftX]
+    const K = [[-22, 8, -2, 1, 0], [16, -5, 4, 1.02, -4], [-14, 9, -4, 1, 0], [22, 2, 3, 1.03, -3], [-16, -7, -3, 1, 0], [0, 0, 0, 1.1, -8]];
+    const lerp = (a, b, t) => a + (b - a) * t; let cur = null, mx = 0, my = 0;
+    addEventListener("pointermove", e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+    const ph = $("#phone"), bar = $("#bar"), b1 = $("#b1"), b2 = $("#b2");
+    const reduce = matchMedia("(prefers-reduced-motion:reduce)").matches;
+    function frame() {
+      const y = scrollY + innerHeight / 2, C = sc.map(s => s.offsetTop + s.offsetHeight / 2);
+      let i = 0; while (i < C.length - 2 && y > C[i + 1]) i++;
+      const t = Math.min(1, Math.max(0, (y - C[i]) / (C[i + 1] - C[i]))), e = t * t * (3 - 2 * t);
+      const T = K[i].map((v, k) => lerp(v, K[i + 1][k], e));
+      setAct(Math.round(i + t));
+      if (!cur) cur = T.slice(); else for (let k = 0; k < 5; k++)cur[k] += (T[k] - cur[k]) * .08;
+      const mob = innerWidth <= 820, sk = mob ? .6 : 1, h = document.documentElement;
+      const sp = scrollY / (h.scrollHeight - innerHeight || 1);
+      ph.style.transform = `translateX(${cur[4] * (mob ? 0 : 1)}vw) rotateY(${cur[0] + mx * 10}deg) rotateX(${cur[1] - my * 8}deg) rotateZ(${cur[2]}deg) scale(${cur[3] * sk})`;
+      ph.style.marginTop = mob ? "-120px" : "0";
+      bar.style.transform = `scaleX(${sp})`;
+      b1.style.transform = `translate(${sp * 30}vw,${sp * 60}vh)`; b2.style.transform = `translate(${-sp * 40}vw,${-sp * 40}vh)`;
+      if (!reduce) requestAnimationFrame(frame)
+    }
+    frame(); if (reduce) addEventListener("scroll", frame, { passive: true });
+  </script>
+</body>
 
-      <div class="header-controls">
-        <!-- Audio SFX Toggle -->
-        <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Toggle UI Audio Effects" data-cursor="sound">
-          <span class="sound-bars" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-          </span>
-          <span class="sound-text">AUDIO <strong id="sound-state">OFF</strong></span>
-        </button>
-
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle data-cursor="menu">
-          <span class="sr-only">Toggle navigation</span>
-          <div class="hamburger">
-            <span></span><span></span><span></span>
-          </div>
-        </button>
-      </div>
-
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
-        <a href="#about" class="nav-link" data-cursor="link"><span class="nav-num">01</span> ABOUT</a>
-        <a href="#capabilities" class="nav-link" data-cursor="link"><span class="nav-num">02</span> MATRIX</a>
-        <a href="#work" class="nav-link" data-cursor="link"><span class="nav-num">03</span> PROJECTS</a>
-        <a href="#journey" class="nav-link" data-cursor="link"><span class="nav-num">04</span> JOURNEY</a>
-        <a href="resume.html" class="nav-link" data-cursor="link"><span class="nav-num">05</span> RESUME</a>
-        <a href="#contact" class="nav-cta" data-cursor="action">
-          <span>CONNECT</span>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </nav>
-    </header>
-
-    <main id="main-content">
-      <!-- HERO SECTION -->
-      <section class="hero-section" id="top">
-        <div class="hero-container">
-          <div class="hero-topline reveal">
-            <div class="status-pill">
-              <span class="pulse-beacon"></span>
-              <span class="status-txt">AVAILABLE FOR HIGH-IMPACT ROLES &amp; SYSTEMS</span>
-            </div>
-            <div class="location-badge">
-              <span class="coords">11.2588° N, 75.7804° E</span>
-              <span class="city">CALICUT // IN</span>
-            </div>
-          </div>
-
-          <div class="hero-main-title">
-            <h1 class="hero-heading">
-              <span class="line-wrap"><span class="hero-word" data-scramble>BUILDING</span></span>
-              <span class="line-wrap">
-                <span class="hero-word outline-text" data-scramble>PRACTICAL</span>
-                <span class="hero-accent-tag">v4.0</span>
-              </span>
-              <span class="line-wrap">
-                <span class="hero-word highlight-word" data-scramble>SOFTWARE</span>
-                <span class="hero-word script-word">that works.</span>
-              </span>
-            </h1>
-          </div>
-
-          <div class="hero-bottom-grid reveal">
-            <div class="hero-bio">
-              <p>
-                Software engineering undergraduate bridging Android, AI/ML, IoT, and embedded systems. I turn complex logic into reliable, high-performance, real-world applications.
-              </p>
-              <div class="hero-cta-group">
-                <a class="btn btn-primary" href="#work" data-cursor="explore">
-                  <span>EXPLORE WORK</span>
-                  <span class="btn-arrow">↓</span>
-                </a>
-                <a class="btn btn-secondary" href="Ananthu%20S.pdf" download data-cursor="download">
-                  <span>RESUME.PDF</span>
-                  <span class="btn-arrow">⤓</span>
-                </a>
-                <a class="btn btn-ghost" href="https://github.com/ATU-S" target="_blank" rel="noreferrer" data-cursor="github">
-                  <span>GITHUB ↗</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-cockpit-card tilt-card" data-tilt>
-              <div class="card-glass-shine"></div>
-              <div class="cockpit-header">
-                <div class="cockpit-dots"><span></span><span></span><span></span></div>
-                <span class="cockpit-title">CORE_SYSTEMS // ACTIVE</span>
-              </div>
-              <div class="cockpit-body">
-                <div class="cockpit-stat">
-                  <span class="stat-lbl">PRIMARY_STACK</span>
-                  <span class="stat-code">KOTLIN / PYTHON / C++</span>
-                </div>
-                <div class="cockpit-stat">
-                  <span class="stat-lbl">FOCUS_DOMAINS</span>
-                  <span class="stat-val">ON-DEVICE ML · EMBEDDED · APPS</span>
-                </div>
-                <div class="cockpit-wave-visualizer" aria-hidden="true">
-                  <div class="wave-col"><span style="height: 45%"></span></div>
-                  <div class="wave-col"><span style="height: 80%"></span></div>
-                  <div class="wave-col"><span style="height: 60%"></span></div>
-                  <div class="wave-col"><span style="height: 95%"></span></div>
-                  <div class="wave-col"><span style="height: 35%"></span></div>
-                  <div class="wave-col"><span style="height: 75%"></span></div>
-                  <div class="wave-col"><span style="height: 50%"></span></div>
-                  <div class="wave-col"><span style="height: 88%"></span></div>
-                </div>
-                <div class="cockpit-badge">
-                  <span>SYS_HEALTH</span>
-                  <strong>100% OPERATIONAL</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <a class="scroll-down-indicator" href="#about" aria-label="Scroll to about section" data-cursor="scroll">
-          <span class="scroll-track"><span class="scroll-thumb"></span></span>
-          <span class="scroll-lbl">SCROLL TO INITIALIZE</span>
-        </a>
-      </section>
-
-      <!-- KINETIC VELOCITY MARQUEE 01 -->
-      <section class="kinetic-marquee-section" aria-hidden="true">
-        <div class="marquee-track track-left" data-speed="1">
-          <div class="marquee-content">
-            <span>ANDROID ARCHITECTURE</span>
-            <span class="separator">✦</span>
-            <span>TENSORFLOW LITE</span>
-            <span class="separator">✦</span>
-            <span>EMBEDDED C &amp; IOT</span>
-            <span class="separator">✦</span>
-            <span>EDGE COMPUTING</span>
-            <span class="separator">✦</span>
-            <span>PRACTICAL ENGINEERING</span>
-            <span class="separator">✦</span>
-          </div>
-          <div class="marquee-content" aria-hidden="true">
-            <span>ANDROID ARCHITECTURE</span>
-            <span class="separator">✦</span>
-            <span>TENSORFLOW LITE</span>
-            <span class="separator">✦</span>
-            <span>EMBEDDED C &amp; IOT</span>
-            <span class="separator">✦</span>
-            <span>EDGE COMPUTING</span>
-            <span class="separator">✦</span>
-            <span>PRACTICAL ENGINEERING</span>
-            <span class="separator">✦</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT SECTION -->
-      <section class="section about-section" id="about">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-tag"><span class="tag-number">01</span> // OVERVIEW</div>
-            <h2 class="section-title" data-scramble>ENGINEERING PHILOSOPHY</h2>
-          </div>
-
-          <div class="about-grid">
-            <div class="about-lead reveal">
-              <h3 class="about-lead-quote">
-                I build systems where <span class="highlight-cyan">software</span> intersects with <span class="highlight-acid">real hardware</span>, real data, and real users.
-              </h3>
-              <p class="about-lead-body">
-                Rather than stopping at disconnected prototypes, I take concepts all the way from problem discovery to robust deployed systems. With a solid foundation in computer hardware engineering and computer science, I connect high-level application logic with low-level device constraints.
-              </p>
-
-              <div class="about-pillars">
-                <div class="pillar-card tilt-card" data-tilt>
-                  <div class="pillar-num">01</div>
-                  <h4>Understand Constraints First</h4>
-                  <p>Real hardware limits and latency matter more than fragile shortcuts.</p>
-                </div>
-                <div class="pillar-card tilt-card" data-tilt>
-                  <div class="pillar-num">02</div>
-                  <h4>Full-Chain Integration</h4>
-                  <p>Seamlessly fusing sensor inputs, ML inferencing, and responsive mobile UI.</p>
-                </div>
-                <div class="pillar-card tilt-card" data-tilt>
-                  <div class="pillar-num">03</div>
-                  <h4>Iterate Under Load</h4>
-                  <p>Stress-testing with real usage to refine stability and ergonomics.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="about-metrics-panel reveal">
-              <div class="spec-card">
-                <div class="spec-header">
-                  <span>TELEMETRY SPECS</span>
-                  <span class="terminal-dot"></span>
-                </div>
-                <div class="spec-rows">
-                  <div class="spec-row">
-                    <span class="spec-k">DEGREE</span>
-                    <span class="spec-v">B.Tech in CSE (2027)</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-k">DIPLOMA</span>
-                    <span class="spec-v">Hardware Eng. (8.52 CGPA)</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-k">LEADERSHIP</span>
-                    <span class="spec-v">Tech Lead @ IEDC KMCT</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-k">SPECIALTY</span>
-                    <span class="spec-v">On-Device AI &amp; Embedded</span>
-                  </div>
-                </div>
-                <div class="spec-graph" aria-hidden="true">
-                  <div class="graph-bar"><span style="height: 70%"></span><i>IOT</i></div>
-                  <div class="graph-bar"><span style="height: 90%"></span><i>ML</i></div>
-                  <div class="graph-bar"><span style="height: 95%"></span><i>APP</i></div>
-                  <div class="graph-bar"><span style="height: 85%"></span><i>SYS</i></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CAPABILITIES / TECH MATRIX -->
-      <section class="section capabilities-section" id="capabilities">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-tag"><span class="tag-number">02</span> // CAPABILITIES</div>
-            <h2 class="section-title" data-scramble>TECH MATRIX &amp; TOOLKIT</h2>
-            <p class="section-sub">Production tools engineered for real-world software, on-device intelligence, and embedded hardware.</p>
-          </div>
-
-          <div class="capabilities-grid">
-            <!-- Card 1: Core Programming -->
-            <article class="cap-card cap-orange tilt-card" data-tilt data-cursor="card">
-              <div class="card-glass-shine"></div>
-              <div class="cap-card-top">
-                <span class="cap-index">MOD_01</span>
-                <div class="cap-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-              </div>
-              <h3 class="cap-title">PROGRAMMING</h3>
-              <p class="cap-desc">System logic, high-concurrency mobile services, and embedded firmware.</p>
-              <div class="tech-tags">
-                <span class="tag">Kotlin</span>
-                <span class="tag">Python</span>
-                <span class="tag">Java</span>
-                <span class="tag">C</span>
-                <span class="tag">Embedded C</span>
-              </div>
-              <div class="card-corner-reticle" aria-hidden="true"></div>
-            </article>
-
-            <!-- Card 2: Machine Learning -->
-            <article class="cap-card cap-acid tilt-card" data-tilt data-cursor="card">
-              <div class="card-glass-shine"></div>
-              <div class="cap-card-top">
-                <span class="cap-index">MOD_02</span>
-                <div class="cap-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                  </svg>
-                </div>
-              </div>
-              <h3 class="cap-title">MACHINE LEARNING</h3>
-              <p class="cap-desc">On-device edge inference, model quantisation, and predictive classification.</p>
-              <div class="tech-tags">
-                <span class="tag">TensorFlow Lite</span>
-                <span class="tag">Random Forest</span>
-                <span class="tag">Scikit-learn</span>
-                <span class="tag">Edge AI</span>
-              </div>
-              <div class="card-corner-reticle" aria-hidden="true"></div>
-            </article>
-
-            <!-- Card 3: Mobile & Infrastructure -->
-            <article class="cap-card cap-cyan tilt-card" data-tilt data-cursor="card">
-              <div class="card-glass-shine"></div>
-              <div class="cap-card-top">
-                <span class="cap-index">MOD_03</span>
-                <div class="cap-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                  </svg>
-                </div>
-              </div>
-              <h3 class="cap-title">MOBILE &amp; PLATFORMS</h3>
-              <p class="cap-desc">Android ecosystem development, native workflows, and Linux toolchains.</p>
-              <div class="tech-tags">
-                <span class="tag">Android Studio</span>
-                <span class="tag">Jetpack</span>
-                <span class="tag">Git</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Hardware Prototyping</span>
-              </div>
-              <div class="card-corner-reticle" aria-hidden="true"></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- KINETIC VELOCITY MARQUEE 02 (REVERSE) -->
-      <section class="kinetic-marquee-section" aria-hidden="true">
-        <div class="marquee-track track-right" data-speed="1.2">
-          <div class="marquee-content">
-            <span class="outline-marquee">DIGITAL BEHAVIORS</span>
-            <span class="separator">★</span>
-            <span>SMART WASTE BIN</span>
-            <span class="separator">★</span>
-            <span class="outline-marquee">E-KART INVENTORY</span>
-            <span class="separator">★</span>
-            <span>HARDWARE PROTO</span>
-            <span class="separator">★</span>
-            <span class="outline-marquee">SYSTEM TELEMETRY</span>
-            <span class="separator">★</span>
-          </div>
-          <div class="marquee-content" aria-hidden="true">
-            <span class="outline-marquee">DIGITAL BEHAVIORS</span>
-            <span class="separator">★</span>
-            <span>SMART WASTE BIN</span>
-            <span class="separator">★</span>
-            <span class="outline-marquee">E-KART INVENTORY</span>
-            <span class="separator">★</span>
-            <span>HARDWARE PROTO</span>
-            <span class="separator">★</span>
-            <span class="outline-marquee">SYSTEM TELEMETRY</span>
-            <span class="separator">★</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- SELECTED WORK SHOWCASE (PINNED & 3D STAGES) -->
-      <section class="section work-section" id="work">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-tag"><span class="tag-number">03</span> // SELECTED WORK</div>
-            <h2 class="section-title" data-scramble>PROJECTS IN THE FIELD</h2>
-            <p class="section-sub">Tested and functional software systems built with production architectures.</p>
-          </div>
-
-          <div class="projects-stack">
-            <!-- PROJECT 01: DIGITAL BEHAVIORS (FEATURED STAGE) -->
-            <article class="project-card project-featured tilt-card" data-tilt data-cursor="project">
-              <div class="card-glass-shine"></div>
-              <div class="project-content">
-                <div class="project-header-meta">
-                  <span class="project-num">01 / 2026</span>
-                  <span class="project-domain">ON-DEVICE ML · ANDROID</span>
-                </div>
-                <h3 class="project-name">Digital <em>Behaviors</em></h3>
-                <p class="project-synopsis">
-                  A high-privacy Android mobile application analyzing background device-use metrics and converting daily screen telemetry into actionable behavioral insights.
-                </p>
-
-                <div class="project-features-list">
-                  <div class="feat-item">
-                    <span class="feat-bullet">↳</span>
-                    <span>TFLite-based on-device machine learning with zero server telemetry leaks.</span>
-                  </div>
-                  <div class="feat-item">
-                    <span class="feat-bullet">↳</span>
-                    <span>Asynchronous pattern recognition tracking focus cycles &amp; usage volatility.</span>
-                  </div>
-                </div>
-
-                <div class="project-action-row">
-                  <a class="btn btn-primary" href="projects/digital-behaviors.html" data-cursor="view">
-                    <span>EXPLORE SYSTEM</span>
-                    <span class="btn-arrow">↗</span>
-                  </a>
-                  <a class="btn btn-ghost" href="https://github.com/ATU-S/digital-behaviors" target="_blank" rel="noreferrer" data-cursor="github">
-                    <span>SOURCE ↗</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Interactive Device Stage -->
-              <div class="project-visual-stage" aria-label="Interactive Phone Preview">
-                <div class="phone-mockup">
-                  <div class="phone-bevel">
-                    <div class="phone-notch"><span class="camera-lens"></span></div>
-                    <div class="phone-screen-content">
-                      <div class="phone-hud-header">
-                        <span class="phone-badge">BEHAVIOR_OS</span>
-                        <span class="phone-time">LIVE</span>
-                      </div>
-                      <div class="focus-metric-box">
-                        <span class="metric-lead">FOCUS_SCORE</span>
-                        <div class="focus-number-wrap">
-                          <strong id="demo-focus-val">78</strong><span class="percent-unit">%</span>
-                        </div>
-                        <span class="status-sub">OPTIMAL COGNITIVE RANGE</span>
-                      </div>
-                      <div class="phone-interactive-chart" id="phone-chart" aria-label="Device usage telemetry chart">
-                        <div class="chart-bar" style="--h: 30%"><i></i></div>
-                        <div class="chart-bar" style="--h: 65%"><i></i></div>
-                        <div class="chart-bar" style="--h: 45%"><i></i></div>
-                        <div class="chart-bar" style="--h: 90%"><i></i></div>
-                        <div class="chart-bar" style="--h: 55%"><i></i></div>
-                        <div class="chart-bar active-bar" style="--h: 82%"><i></i></div>
-                        <div class="chart-bar" style="--h: 70%"><i></i></div>
-                      </div>
-                      <div class="phone-data-row">
-                        <span>SCREEN TIME</span>
-                        <strong>4H 18M</strong>
-                      </div>
-                      <div class="phone-data-row">
-                        <span>UNLOCKS</span>
-                        <strong>34 CYCLES</strong>
-                      </div>
-                      <button class="phone-interactive-btn" id="simulate-metric-btn" type="button" data-cursor="click">
-                        <span>SIMULATE DATA PULSE</span> ⚡
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- SUB-PROJECTS ROW -->
-            <div class="projects-subgrid">
-              <!-- PROJECT 02: SMART WASTE BIN -->
-              <article class="project-card project-compact project-waste tilt-card" data-tilt data-cursor="project">
-                <div class="card-glass-shine"></div>
-                <div class="project-header-meta">
-                  <span class="project-num">02 / 2025</span>
-                  <span class="project-domain">EMBEDDED C · IOT</span>
-                </div>
-
-                <div class="waste-sensor-stage" aria-hidden="true">
-                  <div class="sensor-radar">
-                    <div class="radar-scan"></div>
-                    <span class="radar-dot dot-1"></span>
-                    <span class="radar-dot dot-2"></span>
-                  </div>
-                  <div class="waste-hardware-box">
-                    <div class="bin-top"></div>
-                    <div class="bin-chassis">
-                      <span class="sensor-beam"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <h3 class="project-name">Smart <em>Waste Bin</em></h3>
-                <p class="project-synopsis">
-                  IoT automated segregation system using ultrasonic &amp; inductive sensors with microcontroller control logic for real-time sorting.
-                </p>
-
-                <div class="compact-card-footer">
-                  <span class="tech-pill">ARDUINO / EMBEDDED C</span>
-                  <a class="round-link-btn" href="projects/smart-waste-bin.html" aria-label="View Smart Waste Bin" data-cursor="view">
-                    <span>↗</span>
-                  </a>
-                </div>
-              </article>
-
-              <!-- PROJECT 03: E-KART -->
-              <article class="project-card project-compact project-ekart tilt-card" data-tilt data-cursor="project">
-                <div class="card-glass-shine"></div>
-                <div class="project-header-meta">
-                  <span class="project-num">03 / 2024</span>
-                  <span class="project-domain">PYTHON · KIVY</span>
-                </div>
-
-                <div class="ekart-visual-stage" aria-hidden="true">
-                  <div class="inventory-grid">
-                    <div class="inv-card c1"><span>ITEM_A</span><strong>IN STOCK</strong></div>
-                    <div class="inv-card c2"><span>ITEM_B</span><strong>ROUTED</strong></div>
-                    <div class="inv-card c3"><span>ITEM_C</span><strong>SYNCED</strong></div>
-                  </div>
-                  <div class="ekart-route-line">
-                    <span class="pulse-node n1"></span>
-                    <span class="pulse-node n2"></span>
-                    <span class="pulse-node n3"></span>
-                  </div>
-                </div>
-
-                <h3 class="project-name">E-<em>KART</em> Platform</h3>
-                <p class="project-synopsis">
-                  Smart store inventory manager with real-time stock routing, price comparison indexing, and dynamic customer recommendations.
-                </p>
-
-                <div class="compact-card-footer">
-                  <span class="tech-pill">PYTHON / MOBILE UI</span>
-                  <a class="round-link-btn" href="projects/e-kart.html" aria-label="View E-KART" data-cursor="view">
-                    <span>↗</span>
-                  </a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- JOURNEY & TIMELINE -->
-      <section class="section journey-section" id="journey">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-tag"><span class="tag-number">04</span> // EXP LOG</div>
-            <h2 class="section-title" data-scramble>ENGINEERING TIMELINE</h2>
-            <p class="section-sub">Roles, leadership positions, and applied engineering internships.</p>
-          </div>
-
-          <div class="timeline-cyber-rail">
-            <!-- Item 1 (Current) -->
-            <article class="timeline-node current-node reveal" data-cursor="timeline">
-              <div class="timeline-telemetry">
-                <span class="node-date">2026 // ACTIVE</span>
-                <span class="node-badge-lead">LEADERSHIP</span>
-              </div>
-              <div class="node-anchor">
-                <span class="anchor-glow"></span>
-                <span class="anchor-core"></span>
-              </div>
-              <div class="node-panel tilt-card" data-tilt>
-                <div class="panel-header">
-                  <h3>Technology Lead <span class="company-link">@ IEDC, KMCT</span></h3>
-                  <span class="panel-tag">PROTOTYPING &amp; DELIVERY</span>
-                </div>
-                <p class="panel-desc">
-                  Guiding student hardware &amp; software prototypes, shaping architectural choices, and taking ambitious ideas from napkin drawings to working builds.
-                </p>
-                <div class="panel-footer">
-                  <span class="tech-badge">Android</span>
-                  <span class="tech-badge">Embedded Prototyping</span>
-                  <span class="tech-badge">Systems Mentorship</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Item 2 -->
-            <article class="timeline-node reveal" data-cursor="timeline">
-              <div class="timeline-telemetry">
-                <span class="node-date">SEP — NOV 2024</span>
-                <span class="node-badge-intern">INTERNSHIP</span>
-              </div>
-              <div class="node-anchor">
-                <span class="anchor-core"></span>
-              </div>
-              <div class="node-panel tilt-card" data-tilt>
-                <div class="panel-header">
-                  <h3>Machine Learning Intern <span class="company-link">@ Yhills</span></h3>
-                  <span class="panel-tag">DATA &amp; MODELS</span>
-                </div>
-                <p class="panel-desc">
-                  Built and benchmarked Python-driven machine learning pipelines, preprocessing tabular data sets and optimizing model accuracy across experimental iterations.
-                </p>
-                <div class="panel-footer">
-                  <span class="tech-badge">Python</span>
-                  <span class="tech-badge">Scikit-Learn</span>
-                  <span class="tech-badge">Data Science</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Item 3 -->
-            <article class="timeline-node reveal" data-cursor="timeline">
-              <div class="timeline-telemetry">
-                <span class="node-date">MAY 2023</span>
-                <span class="node-badge-intern">INTERNSHIP</span>
-              </div>
-              <div class="node-anchor">
-                <span class="anchor-core"></span>
-              </div>
-              <div class="node-panel tilt-card" data-tilt>
-                <div class="panel-header">
-                  <h3>Python Automation Intern <span class="company-link">@ Propulsion System</span></h3>
-                  <span class="panel-tag">AUTOMATION</span>
-                </div>
-                <p class="panel-desc">
-                  Automated repetitive backend workflows and file parsing routines with custom Python scripts, eliminating manual human overhead and failure points.
-                </p>
-                <div class="panel-footer">
-                  <span class="tech-badge">Python Scripting</span>
-                  <span class="tech-badge">Process Automation</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CREDENTIALS & FOUNDATION -->
-      <section class="section credentials-section">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-tag"><span class="tag-number">05</span> // FOUNDATION</div>
-            <h2 class="section-title" data-scramble>ACADEMICS &amp; CERTS</h2>
-          </div>
-
-          <div class="credentials-layout">
-            <div class="education-column reveal">
-              <div class="edu-card tilt-card" data-tilt>
-                <div class="edu-year">2024 — 2027</div>
-                <div class="edu-details">
-                  <h3>B.Tech in Computer Science &amp; Engineering</h3>
-                  <p>KMCT College of Engineering</p>
-                </div>
-                <div class="edu-grade">
-                  <strong>7.5</strong>
-                  <span>CGPA</span>
-                </div>
-              </div>
-
-              <div class="edu-card tilt-card" data-tilt>
-                <div class="edu-year">2021 — 2024</div>
-                <div class="edu-details">
-                  <h3>Diploma in Computer Hardware Engineering</h3>
-                  <p>KMCT Polytechnic College</p>
-                </div>
-                <div class="edu-grade">
-                  <strong class="highlight-acid">8.52</strong>
-                  <span>CGPA</span>
-                </div>
-              </div>
-
-              <div class="edu-card tilt-card" data-tilt>
-                <div class="edu-year">2023</div>
-                <div class="edu-details">
-                  <h3>Diploma in Computer Application (DCA)</h3>
-                  <p>SCOLE Kerala</p>
-                </div>
-                <div class="edu-grade">
-                  <strong class="highlight-cyan">+</strong>
-                  <span>PASS</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="certifications-column reveal">
-              <div class="cert-terminal">
-                <div class="cert-terminal-bar">
-                  <span>VERIFIED CERTIFICATIONS // ARCHIVE</span>
-                  <div class="term-dots"><span></span><span></span><span></span></div>
-                </div>
-                <div class="cert-items-list">
-                  <a class="cert-row" href="https://www.netacad.com/" target="_blank" rel="noreferrer" data-cursor="external">
-                    <span class="cert-org">CISCO NETWORKING ACADEMY</span>
-                    <span class="cert-title">Ethical Hacking ↗</span>
-                    <span class="cert-status">VALIDATED</span>
-                  </a>
-                  <div class="cert-row">
-                    <span class="cert-org">NIT CALICUT</span>
-                    <span class="cert-title">Generative AI Engineering</span>
-                    <span class="cert-status">VALIDATED</span>
-                  </div>
-                  <div class="cert-row">
-                    <span class="cert-org">OFFENSE HACKER ACADEMY</span>
-                    <span class="cert-title">Hacker Toolkit &amp; Security</span>
-                    <span class="cert-status">VALIDATED</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT COCKPIT PORTAL -->
-      <section class="section contact-section" id="contact">
-        <div class="section-container">
-          <div class="contact-cockpit reveal">
-            <div class="contact-glow-orb" aria-hidden="true"></div>
-            
-            <div class="section-tag"><span class="tag-number">06</span> // INITIATE TRANSMISSION</div>
-            <h2 class="contact-main-heading">
-              HAVE A SYSTEM IN MIND?<br />
-              <span class="highlight-acid" data-scramble>LET’S BUILD IT REAL.</span>
-            </h2>
-
-            <div class="contact-cta-panel">
-              <a class="contact-email-btn" href="mailto:ananthus1687@gmail.com" data-cursor="mail">
-                <span class="email-label">PRIMARY TRANSMISSION CHANNEL</span>
-                <span class="email-address">ananthus1687@gmail.com <span class="arrow">↗</span></span>
-              </a>
-
-              <div class="contact-direct-links">
-                <a class="direct-link" href="https://www.linkedin.com/in/atu-s" target="_blank" rel="noreferrer" data-cursor="linkedin">
-                  <span>LINKEDIN</span>
-                  <span class="ico">↗</span>
-                </a>
-                <a class="direct-link" href="https://github.com/ATU-S" target="_blank" rel="noreferrer" data-cursor="github">
-                  <span>GITHUB</span>
-                  <span class="ico">↗</span>
-                </a>
-                <a class="direct-link" href="tel:+919400642545" data-cursor="call">
-                  <span>+91 94006 42545</span>
-                  <span class="ico">↗</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-status-bar">
-              <div class="status-left">
-                <span class="geo-marker">📍</span>
-                <span>CALICUT, KERALA · INDIA // GMT+5:30</span>
-              </div>
-              <div class="status-right">
-                <span class="ping-rate">RESPONSE LATENCY &lt; 24H</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-col-left">
-          <span class="footer-copy">© <span data-year>2026</span> ANANTHU S // ALL SYSTEMS FUNCTIONAL</span>
-          <span class="footer-engine">POWERED BY CUSTOM 3D MORPH ENGINE &amp; LENIS</span>
-        </div>
-        <div class="footer-col-right">
-          <a class="back-to-top" href="#top" data-cursor="top">
-            <span>BACK TO TOP</span>
-            <span class="top-arrow">↑</span>
-          </a>
-        </div>
-      </div>
-    </footer>
-
-    <!-- App Engine Script -->
-    <script src="app.js"></script>
-  </body>
 </html>
